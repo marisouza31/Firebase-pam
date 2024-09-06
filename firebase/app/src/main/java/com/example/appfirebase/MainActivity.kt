@@ -82,7 +82,7 @@ fun Header() {
             textAlign = TextAlign.Center,
             fontSize = 24.sp,
             fontFamily = FontFamily.Serif,
-            fontWeight = FontWeight.Bold // Título em negrito
+            fontWeight = FontWeight.Bold 
         )
     }
 }
