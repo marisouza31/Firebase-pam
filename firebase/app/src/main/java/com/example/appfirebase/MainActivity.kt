@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -52,7 +53,15 @@ fun App(db: FirebaseFirestore) {
                     nome = newNome
                     telefone = newTelefone
                 }
-                ActionButton(db, nome, telefone)
+                // Centraliza o botão
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 10.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    ActionButton(db, nome, telefone)
+                }
                 FetchClientData(db)
             }
         }
@@ -72,7 +81,8 @@ fun Header() {
             text = "App Firebase - Cadastrar Clientes",
             textAlign = TextAlign.Center,
             fontSize = 24.sp,
-            fontFamily = FontFamily.Serif
+            fontFamily = FontFamily.Serif,
+            fontWeight = FontWeight.Bold // Título em negrito
         )
     }
 }
@@ -120,13 +130,15 @@ fun ActionButton(db: FirebaseFirestore, nome: String, telefone: String) {
                     Log.w(TAG, "Error writing document", e)
                 }
         },
-        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6200EE)), // Cor roxa
+        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFC0CB)), // Cor rosa
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 16.dp)
             .height(48.dp) // Tamanho menor
     ) {
-        Text(text = "Cadastrar", fontSize = 16.sp)
+        Text(
+            text = "Cadastrar",
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold // Título em negrito
+        )
     }
 }
 
