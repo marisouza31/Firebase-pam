@@ -40,7 +40,7 @@ fun App(db: FirebaseFirestore) {
     AppFirebaseTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
+            color = Color(0xFFD893E4) // Cor de fundo
         ) {
             Column(
                 modifier = Modifier
@@ -130,7 +130,7 @@ fun ActionButton(db: FirebaseFirestore, nome: String, telefone: String) {
                     Log.w(TAG, "Error writing document", e)
                 }
         },
-        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFC0CB)), // Cor rosa
+        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFAD51BD)), 
         modifier = Modifier
             .height(48.dp) // Tamanho menor
     ) {
